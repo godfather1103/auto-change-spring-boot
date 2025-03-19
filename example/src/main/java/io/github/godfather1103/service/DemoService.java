@@ -20,10 +20,12 @@ import org.springframework.stereotype.Service;
 public class DemoService {
     public void sayHello() {
         System.out.println("sayHello:" + DynamicChangeToContextHolder.peek());
+        System.out.println("sayHello:" + DynamicChangeToContextHolder.peek());
     }
 
     @ChangeTo("zh")
     public void sayZhHello() {
+        System.out.println("sayZhHello:" + DynamicChangeToContextHolder.peek());
         System.out.println("sayZhHello:" + DynamicChangeToContextHolder.peek());
     }
 }
