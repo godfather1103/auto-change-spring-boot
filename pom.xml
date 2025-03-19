@@ -132,6 +132,9 @@
                 <extensions>true</extensions>
                 <configuration>
                     <publishingServerId>central</publishingServerId>
+                    <excludeArtifacts>
+                        example
+                    </excludeArtifacts>
                 </configuration>
             </plugin>
             <plugin>
