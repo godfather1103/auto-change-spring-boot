@@ -14,9 +14,9 @@
     <version>1.0</version>
     <packaging>pom</packaging>
     <modules>
+        <module>example</module>
         <module>starter</module>
         <module>app</module>
-        <module>example</module>
     </modules>
 
     <properties>
@@ -114,7 +114,16 @@
                 <version>2.6.1</version>
                 <configuration>
                     <encoding>${project.build.sourceEncoding}</encoding>
+                    <additionalparam>-Xdoclint:none</additionalparam>
                 </configuration>
+                <executions>
+                    <execution>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
                 <groupId>org.sonatype.central</groupId>
@@ -124,6 +133,20 @@
                 <configuration>
                     <publishingServerId>central</publishingServerId>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>1.5</version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
